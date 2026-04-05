@@ -3,9 +3,9 @@ from pydantic import BaseModel
 import json
 import re
 
-from nlp_engine import extract_info
-from prompt_builder import build_prompt
-from llm_generator import generate_test_cases
+from app.nlp_engine import extract_info
+from app.prompt_builder import build_prompt
+from app.llm_generator import generate_test_cases
 
 app = FastAPI()
 
@@ -30,8 +30,7 @@ def generate(req: Requirement):
         test_cases = json.loads(result)
     except json.JSONDecodeError as e:
         test_cases = {
-            "error": "Failed to parse JSON from LLM output",
-            "raw_output": result
+            "error": "Failed to parse JSON from LLM output. plesae try again",
         }
 
     return {
