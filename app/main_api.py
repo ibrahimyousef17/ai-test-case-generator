@@ -18,7 +18,6 @@ app.add_middleware(
 )
 
 class Requirement(BaseModel):
-    id: int
     title: str
     description: str
 
@@ -42,6 +41,5 @@ def generate(req: Requirement):
         }
 
     return {
-        "requirementId": req.id,
         "testCases": test_cases
     }
