@@ -1,7 +1,7 @@
 import requests
-from config import MODEL_NAME, OLLAMA_URL
-from prompt_builder import build_prompt
-from nlp_engine import extract_info
+from app.config import MODEL_NAME, OLLAMA_URL
+from app.prompt_builder import build_prompt
+from app.nlp_engine import extract_info
 def generate_test_cases(prompt):
     try:
         response = requests.post(
@@ -22,8 +22,8 @@ def generate_test_cases(prompt):
     
 
 # testing 
-text = ' the user can login using email and password'
-text = extract_info(text)
-prompt = build_prompt(text)
-print(prompt)
+# text = ' the user can login using email and password'
+# text = extract_info(text)
+# prompt = build_prompt(text)
+# print(prompt)
 # print(generate_test_cases(prompt))

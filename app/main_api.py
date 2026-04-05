@@ -2,12 +2,20 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import json
 import re
-
+from fastapi.middleware.cors import CORSMiddleware
 from app.nlp_engine import extract_info
 from app.prompt_builder import build_prompt
 from app.llm_generator import generate_test_cases
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class Requirement(BaseModel):
     id: int

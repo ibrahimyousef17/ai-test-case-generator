@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+spacy
+requests
+pydantic
+en_core_web_sm
